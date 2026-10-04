@@ -304,4 +304,8 @@ if data:
     c1.button("◀ السابقة", on_click=go_prev, use_container_width=True)
     c2.button("التالية ▶", on_click=go_next, use_container_width=True)
     c3, c4 = st.columns(2)
-    c3.button("خط
+    c3.button("خطئي التالي", on_click=go_mistake, use_container_width=True)
+    c4.button("أسوأ خطأ", on_click=go_worst, use_container_width=True)
+
+    idx = max(0, min(st.session_state.idx, len(records) - 1))
+    st.markdown(clean(board_html(records, idx, user_color)), unsafe_allow_html=True)
